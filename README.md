@@ -6,6 +6,8 @@ One word — the word my ex would use to describe me — entered in the [One Wor
 
 > Unread
 
+The word an ex reaches for after weeks of messages left on read: short, specific, and painfully familiar to anyone who has been ghosted — or done the ghosting.
+
 ## How it runs
 
 `main.py` (Python standard library only) copies `entry.txt` to `$MAKEFUN_OUTPUT_DIR/entry.txt`, falling back to `/output/entry.txt`.

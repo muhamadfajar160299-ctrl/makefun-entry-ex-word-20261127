@@ -1,15 +1,16 @@
+"""Copy the one-word entry into the directory the grader reads."""
+
+# The grader reads exactly one word from entry.txt; nothing else is written.
+from pathlib import Path
 import os
-import shutil
 
 
-def main():
-    here = os.path.dirname(os.path.abspath(__file__))
-    src = os.path.join(here, "entry.txt")
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
-    os.makedirs(out_dir, exist_ok=True)
-    dst = os.path.join(out_dir, "entry.txt")
-    shutil.copyfile(src, dst)
+def place_entry():
+    here = Path(__file__).resolve().parent
+    out = Path(os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output")
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "entry.txt").write_bytes((here / "entry.txt").read_bytes())
 
 
 if __name__ == "__main__":
-    main()
+    place_entry()
